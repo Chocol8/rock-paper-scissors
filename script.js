@@ -61,7 +61,53 @@ function playRound(player){
     }
     else{
         result.textContent = "Its a tie! Scissors doesn't beat scissors";
-    }  
+    } 
+    
+    /*win/lose condition*/
+    if(computerScoreValue == 5){
+        let container = document.querySelector("#container");
+        result.textContent = "You lose!";
+        rock.disabled = true;
+        paper.disabled = true;
+        scissors.disabled = true;
+        const reset = document.createElement("button");
+        container.appendChild(reset);
+        reset.textContent = "Play again?";
+
+        reset.addEventListener('click', function(){
+            rock.disabled = false;
+            paper.disabled = false;
+            scissors.disabled = false;
+            playerScoreDiv.textContent = `Player score: 0`;
+            computerScoreDiv.textContent = `Computer score: 0`;
+            result.textContent = ``;
+            playerScoreValue = 0;
+            computerScoreValue = 0;
+            reset.remove();
+        });
+    } 
+    else if (playerScoreValue == 5){
+        let container = document.querySelector("#container");
+        result.textContent = "You win!";
+        rock.disabled = true;
+        paper.disabled = true;
+        scissors.disabled = true;
+        const reset = document.createElement("button");
+        container.appendChild(reset);
+        reset.textContent = "Play again?";
+
+        reset.addEventListener('click', function(){
+            rock.disabled = false;
+            paper.disabled = false;
+            scissors.disabled = false;
+            playerScoreDiv.textContent = `Player score: 0`;
+            computerScoreDiv.textContent = `Computer score: 0`;
+            result.textContent = ``;
+            playerScoreValue = 0;
+            computerScoreValue = 0;
+            reset.remove();
+        });
+    }
 }
 
 const rock = document.querySelector("#rock");
