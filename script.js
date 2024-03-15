@@ -16,6 +16,8 @@ function getComputerChoice(){
 
 function playRound(player){
     let computer = getComputerChoice();
+    let playerScoreDiv = document.querySelector("#playerScore");
+    let computerScoreDiv = document.querySelector("#computerScore");
     let result = document.querySelector("#result");
     
     /*computer picks rock*/
@@ -24,35 +26,49 @@ function playRound(player){
     }
     else if (computer == "rock" && player == "paper"){
         result.textContent = "You lose! Rock loses to paper";
+        computerScoreValue += 1;
+        computerScoreDiv.textContent = `Computer score: ${computerScoreValue}`;
     }
     else if (computer == "rock" && player == "scissors"){
         result.textContent = "You win! Rock beats Scissors";
+        playerScoreValue += 1;
+        playerScoreDiv.textContent = `Player score: ${playerScoreValue}`;
     }
     /*computer picks paper*/
     else if(computer == "paper" && player == "rock"){
         result.textContent = "You win! Paper beats rock";
+        playerScoreValue += 1;
+        playerScoreDiv.textContent = `Player score: ${playerScoreValue}`;
     }
     else if (computer == "paper" && player == "paper"){
         result.textContent = "Its a tie! Paper doesn't beat paper";
     }
     else if (computer == "paper" && player == "scissors"){
         result.textContent = "You lose! Paper loses to scissors";
+        computerScoreValue += 1;
+        computerScoreDiv.textContent = `Computer score: ${computerScoreValue}`;
     }
     /*computer picks scissors*/
     else if(computer == "scissors" && player == "rock"){
         result.textContent = "You lose! Scissors loses to rock";
+        computerScoreValue += 1;
+        computerScoreDiv.textContent = `Computer score: ${computerScoreValue}`;
     }
     else if (computer == "scissors" && player == "paper"){
         result.textContent = "You win! Scissors beats paper";
+        playerScoreValue += 1;
+        playerScoreDiv.textContent = `Player score: ${playerScoreValue}`;
     }
     else{
         result.textContent = "Its a tie! Scissors doesn't beat scissors";
-    }    
+    }  
 }
 
 const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
+let playerScoreValue = 0;
+let computerScoreValue = 0;
 
 rock.addEventListener('click', function(){
     let value = rock.value;
