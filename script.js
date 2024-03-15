@@ -20,11 +20,14 @@ function getPlayerChoice(){
     return PlayerChoice;
 }
 
-function playRound(player,computer){
+function playRound(){
+    let computer = getComputerChoice();
+    let player = getPlayerChoice();
+
     /*computer picks rock*/
     if(computer == "rock" && player == "rock"){
         console.log("Its a tie! Rock doesn't beat Rock")
-        return "Its a tie! Rock doesn't beat Rock";
+        return "Its a tie! Rock doesn't beat rock";
     }
     else if (computer == "rock" && player == "paper"){
         console.log("You lose! Rock loses to paper")
@@ -40,12 +43,12 @@ function playRound(player,computer){
         return "You win! Paper beats rock";
     }
     else if (computer == "paper" && player == "paper"){
-        console.log("Its a tie! Rock doesn't beat Rock")
-        return "Its a tie! Rock doesn't beat Rock";
+        console.log("Its a tie! Paper doesn't beat paper")
+        return "Its a tie! Paper doesn't beat paper";
     }
     else if (computer == "paper" && player == "scissors"){
-        console.log("You lose! Rock loses to paper")
-        return "You lose! Rock loses to paper";
+        console.log("You lose! Paper loses to scissors")
+        return "You lose! Paper loses to scissors";
     }
     /*computer picks scissors*/
     else if(computer == "scissors" && player == "rock"){
@@ -62,30 +65,38 @@ function playRound(player,computer){
     }    
 }
 
-function playGame(){
-    let score = 0;
-    for (i=1;i<=5;i++){
-        console.log(`Round ${i}`);
-        const computer = getComputerChoice();
-        const player = getPlayerChoice();
-        let round = playRound(player, computer);
+const rock = document.querySelector("#rock");
+const paper = document.querySelector("#paper");
+const scissors = document.querySelector("#scissors");
 
-        if(round.includes("win") == true){
-            score++;
-        }
-        else if (round.includes("lose") == true){
-            score--;
-        }
-    }
-    if(score > 0){
-        console.log(`You win! Your score against the computer is ${score}`);
-    }
-    else if (score < 0){
-        console.log(`You lose! Your score against the computer is ${score}`);
-    }
-    else{
-        console.log(`It's a tie! Your score against the computer is 0`);
-    }
-}
+rock.onclick = playRound;
+paper.onclick = playRound;
+scissors.onclick = playRound;
 
-playGame();
+// function playGame(){
+//     let score = 0;
+//     for (i=1;i<=5;i++){
+//         console.log(`Round ${i}`);
+//         const computer = getComputerChoice();
+//         const player = getPlayerChoice();
+//         let round = playRound(player, computer);
+
+//         if(round.includes("win") == true){
+//             score++;
+//         }
+//         else if (round.includes("lose") == true){
+//             score--;
+//         }
+//     }
+//     if(score > 0){
+//         console.log(`You win! Your score against the computer is ${score}`);
+//     }
+//     else if (score < 0){
+//         console.log(`You lose! Your score against the computer is ${score}`);
+//     }
+//     else{
+//         console.log(`It's a tie! Your score against the computer is 0`);
+//     }
+// }
+
+// playGame();
