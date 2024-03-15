@@ -16,45 +16,37 @@ function getComputerChoice(){
 
 function playRound(player){
     let computer = getComputerChoice();
-
+    let result = document.querySelector("#result");
+    
     /*computer picks rock*/
     if(computer == "rock" && player == "rock"){
-        console.log("Its a tie! Rock doesn't beat Rock")
-        return "Its a tie! Rock doesn't beat rock";
+        result.textContent = "Its a tie! Rock doesn't beat Rock";
     }
     else if (computer == "rock" && player == "paper"){
-        console.log("You lose! Rock loses to paper")
-        return "You lose! Rock loses to paper";
+        result.textContent = "You lose! Rock loses to paper";
     }
     else if (computer == "rock" && player == "scissors"){
-        console.log("You win! Rock beats Scissors")
-        return "You win! Rock beats Scissors";
+        result.textContent = "You win! Rock beats Scissors";
     }
     /*computer picks paper*/
     else if(computer == "paper" && player == "rock"){
-        console.log("You win! Paper beats rock")
-        return "You win! Paper beats rock";
+        result.textContent = "You win! Paper beats rock";
     }
     else if (computer == "paper" && player == "paper"){
-        console.log("Its a tie! Paper doesn't beat paper")
-        return "Its a tie! Paper doesn't beat paper";
+        result.textContent = "Its a tie! Paper doesn't beat paper";
     }
     else if (computer == "paper" && player == "scissors"){
-        console.log("You lose! Paper loses to scissors")
-        return "You lose! Paper loses to scissors";
+        result.textContent = "You lose! Paper loses to scissors";
     }
     /*computer picks scissors*/
     else if(computer == "scissors" && player == "rock"){
-        console.log("You lose! Scissors loses to rock")
-        return "You lose! Scissors loses to rock";
+        result.textContent = "You lose! Scissors loses to rock";
     }
     else if (computer == "scissors" && player == "paper"){
-        console.log("You win! Scissors beats paper")
-        return "You win! Scissors beats paper";
+        result.textContent = "You win! Scissors beats paper";
     }
     else{
-        console.log("Its a tie! Scissors doesn't beat scissors")
-        return "Its a tie! Scissors doesn't beat scissors";
+        result.textContent = "Its a tie! Scissors doesn't beat scissors";
     }    
 }
 
